@@ -35,7 +35,7 @@ steps:
   inputs:
     ConnectionType: 'AzureRM'
     azureSubscription: 'Azure für Bildungseinrichtungen(8cbc67bc-4d42-4f68-8be3-6a039edf574a)'
-    appType: 'webAppLinux'
+    appType: 'webApp'
     WebAppName: 'per081022app'
     runtimeStack: 'NODE|16.x'
     packageForLinux: '$(Build.ArtifactStagingDirectory)/*.zip'
