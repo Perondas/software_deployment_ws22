@@ -1,0 +1,19 @@
+FROM ubuntu:latest
+
+ENV container docker
+ARG MYSQL_USER 'wpuser'
+ARG MYSQL_PASS 'wppass'
+ARG MYSQL_DB 'wpdb'
+
+RUN apt update
+RUN apt upgrade
+RUN apt install mysql-server -y
+RUN apt install less -y 
+
+RUN sed -i "s/.*bind-address.*/bind-address = 0.0.0.0/" /etc/mysql/mysql.conf.d/mysqld.cnf
+
+EXPOSE 3306/tcp
+
+COPY ./entrypoint.sh /
+ENTRYPOINT [ "./entrypoint.sh" ]
+
